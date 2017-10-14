@@ -15,12 +15,15 @@ public class Processo
 	protected int turnaroud =0;
 	/* @var overhead em segundos */
 	protected int overhead = 0;
-	public Processo(int pid,String nome,int chegada,int tamanho, String prioridade)
+	public Processo(int pid,String nome,int chegada,int tamanho, String prioridade, boolean interrupcao, boolean svc, boolean execao)
 	{
 		this.pid = pid;
 		this.nome = nome;
 		this.prioridade = prioridade;
 		this.tamanho = tamanho;
 		this.chegada = chegada;
+		this.interrupcao = interrupcao;
+		this.svc = svc;
+		this.excecao = execao;
 	}
 }

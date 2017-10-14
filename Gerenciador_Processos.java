@@ -4,9 +4,10 @@ public class Gerenciador_Processos {
 	String processoNome;
 	Novo novo = new Novo();
 	Pronto pronto = new Pronto();
-	public boolean criaNovo(int pid,String nome,int chegada,int tamanho,String prioridade)
+	
+	public boolean criaNovo(int pid,String nome,int chegada,int tamanho, String prioridade, boolean interrupcao, boolean svc, boolean execao)
 	{
-		Processo processo = new Processo(pid, nome, chegada, tamanho, prioridade);
+		Processo processo = new Processo(pid,nome,chegada,tamanho, prioridade, interrupcao, svc, execao);
 		return this.novo.enfileirar(processo);
 	}
 	public boolean novoParaPronto()
@@ -15,7 +16,6 @@ public class Gerenciador_Processos {
 		{
 			Processo p = this.novo.desenfileirar();
 			this.pronto.enfileirar(p);
-			this.pronto.ordernar(p);
 			this.ImprimeFilas();
 			return true;
 		}
@@ -26,6 +26,13 @@ public class Gerenciador_Processos {
 			return false;
 		}
 	}
+	public void prontoParaExecucao()
+	{
+		Processo processoPronto = this.pronto.remove();
+		System.out.println(processoPronto.nome);
+	}
+	
+	
 	public void ImprimeFilas()
 	{
 		System.out.println("-------Fila de Novo-------");
@@ -45,6 +52,11 @@ public class Gerenciador_Processos {
 		}
 	}
 }
+
+
+
+
+
 
 /*
  * Ideia de Arraylist de novo para pronto

@@ -12,10 +12,11 @@ public class testes {
 		g.criaNovo(1374, "Firefox", 1, 3, "Normal");
 		g.criaNovo(1374, "Eclipse", 1, 1, "Normal");
 		g.criaNovo(1374, "Sublime", 1, 7, "Normal");
-		g.ImprimeFilas();
+		//g.ImprimeFilas();
 		g.novoParaPronto();
 		g.novoParaPronto();
 		g.novoParaPronto();
+		g.prontoParaExecucao();
 	}
 	
 	/*Processo Chrome = new Processo(1368,"Chrome","Normal");
