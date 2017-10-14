@@ -1,13 +1,13 @@
 package com.br.trabalho_faculdade;
 
 public class Gerenciador_Processos {
-	String processoNome;
-	Novo novo = new Novo();
-	Pronto pronto = new Pronto();
+	protected String processoNome;
+	protected Novo novo = new Novo();
+	protected Pronto pronto = new Pronto();
 	
-	public boolean criaNovo(int pid,String nome,int chegada,int tamanho, String prioridade, boolean interrupcao, boolean svc, boolean execao)
+	public boolean criaNovo(int pid,String nome,int chegada,int tamanho, String prioridade, boolean interrupcao, boolean svc, boolean execao, boolean geraBloqueio)
 	{
-		Processo processo = new Processo(pid,nome,chegada,tamanho, prioridade, interrupcao, svc, execao);
+		Processo processo = new Processo(pid,nome,chegada,tamanho, prioridade, interrupcao, svc, execao,geraBloqueio);
 		return this.novo.enfileirar(processo);
 	}
 	public boolean novoParaPronto()
@@ -26,12 +26,6 @@ public class Gerenciador_Processos {
 			return false;
 		}
 	}
-	public void prontoParaExecucao()
-	{
-		Processo processoPronto = this.pronto.remove();
-		System.out.println(processoPronto.nome);
-	}
-	
 	
 	public void ImprimeFilas()
 	{
@@ -50,6 +44,11 @@ public class Gerenciador_Processos {
 		{
 			System.out.println("Fila de Novo Não está vazia");
 		}
+	}
+	
+	public Pronto getPronto()
+	{
+		return this.pronto;
 	}
 }
 

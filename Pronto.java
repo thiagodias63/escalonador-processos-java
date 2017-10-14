@@ -1,7 +1,6 @@
 package com.br.trabalho_faculdade;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Pronto implements Fila 
 {
@@ -26,7 +25,7 @@ public class Pronto implements Fila
 	{
 		if(!this.vazia())
 		{
-			Processo menorTamanho = new Processo(1,"ProcessoDeCoparacao",0,1000,"Baixa");
+			Processo menorTamanho = new Processo(1,"ProcessoDeCoparacao",0,1000,"Baixa",false,false,false,false);
 			for(Processo p : this.filaPronto)
 			{
 				if(p.interrupcao == true || p.svc == true || p.excecao == true || p.prioridade == "Bloqueado")
@@ -38,9 +37,19 @@ public class Pronto implements Fila
 			}
 			for(Processo p : this.filaPronto)
 			{
-				if(menorTamanho.tamanho > p.tamanho)
+				if(p.prioridade == "Alta")
+				{
+					Processo retornaProcesso = p;
+					this.filaPronto.remove(this.filaPronto.indexOf(p));
+					return retornaProcesso;
+				}
+				else if(menorTamanho.tamanho > p.tamanho)
+				{
 					menorTamanho = p;
+				}
 			}
+			
+			this.filaPronto.remove(this.filaPronto.indexOf(menorTamanho));
 			return menorTamanho;
 		}
 		else
