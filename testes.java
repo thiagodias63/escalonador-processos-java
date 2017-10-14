@@ -12,7 +12,7 @@ public class testes {
 		
 		g.criaNovo(1374, "Firefox", 1, 3, "Normal",false,false,false,false);
 		g.criaNovo(1374, "Eclipse", 1, 1, "Normal",false,false,false,false);
-		g.criaNovo(1374, "Sublime", 1, 7, "Normal",false,false,false,false);
+		g.criaNovo(1374, "Sublime", 1, 7, "Normal",false,false,false,true);
 		
 		g.novoParaPronto();
 		g.novoParaPronto();
@@ -21,7 +21,7 @@ public class testes {
 		e.prontoParaExecucao(g.getPronto());
 		e.prontoParaExecucao(g.getPronto());
 		e.prontoParaExecucao(g.getPronto());
-		g.ImprimeFilas();
+		//g.ImprimeFilas();
 	}
 	
 	/*Processo Chrome = new Processo(1368,"Chrome","Normal");

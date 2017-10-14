@@ -28,7 +28,7 @@ public class Pronto implements Fila
 			Processo menorTamanho = new Processo(1,"ProcessoDeCoparacao",0,1000,"Baixa",false,false,false,false);
 			for(Processo p : this.filaPronto)
 			{
-				if(p.interrupcao == true || p.svc == true || p.excecao == true || p.prioridade == "Bloqueado")
+				if(p.interrupcao == true || p.svc == true || p.excecao == true || p.prioridade == "Bloqueado" || p.geraBloqueio == true)
 				{
 					Processo retornaProcesso = p;
 					this.filaPronto.remove(this.filaPronto.indexOf(p));

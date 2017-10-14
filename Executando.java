@@ -10,7 +10,7 @@ public class Executando
 		{
 			this.estadoProcesso = "Bloqueado";
 		}
-		if(p.interrupcao == true || p.excecao == true || p.svc == true)
+		else if(p.interrupcao == true || p.excecao == true || p.svc == true)
 		{
 			p.turnaroud -= p.tamanho;
 			this.estadoProcesso = "Finalizado";

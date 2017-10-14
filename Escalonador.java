@@ -5,6 +5,7 @@ public class Escalonador extends Gerenciador_Processos
 	public void prontoParaExecucao(Pronto pronto)
 	{
 		Processo processoPronto = pronto.remove();
-		//System.out.println(processoPronto.nome);
+		Executando e = new Executando(processoPronto);
+		System.out.println("Processo deve ir para a fila de:" + e.estadoProcesso);
 	}
 }
