@@ -32,10 +32,10 @@ public class Novo implements Fila
 	}
 	public void ImprimeFila()
 	{
-		System.out.println("Processo | PID | Chegada | Tamanho | Prioridade");
+		System.out.println("Processo | PID | Chegada | Tamanho | Prioridade | Interrupção? | SVC? | Exeção? | Gera Bloqueio?");
 		for(Processo p : this.filaNovo)
 		{
-			System.out.println(p.nome + " | " + p.pid  + " | "+ p.chegada + " | " + p.tamanho + " | " + p.prioridade);
+			System.out.println(p.nome + " | " + p.pid  + " | "+ p.chegada + " | " + p.tamanho + " | " + p.prioridade + " | " + p.interrupcao + " | " + p.svc + " | " + p.excecao + " | " + p.geraBloqueio);
 		}
 	}
 }

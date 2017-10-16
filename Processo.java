@@ -12,10 +12,6 @@ public class Processo
 	protected boolean svc = false;
 	protected boolean excecao = false;
 	protected boolean geraBloqueio = false;
-	/* @var turnaroud em segundos */
-	protected int turnaroud =0;
-	/* @var overhead em segundos */
-	protected int overhead = 0;
 	public Processo(int pid,String nome,int chegada,int tamanho, String prioridade, boolean interrupcao, boolean svc, boolean execao, boolean geraBloqueio)
 	{
 		this.pid = pid;
@@ -28,4 +24,8 @@ public class Processo
 		this.excecao = execao;
 		this.geraBloqueio = geraBloqueio;
 	}
+	/* @var turnaroud em segundos */
+	//protected int turnaroud =0; -- Não é necessario implementar
+	/* @var overhead em segundos */ 
+	//protected int overhead = 0; -- Não é necessario implementar
 }

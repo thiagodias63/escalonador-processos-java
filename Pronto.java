@@ -28,7 +28,7 @@ public class Pronto implements Fila
 			Processo menorTamanho = new Processo(1,"ProcessoDeCoparacao",0,1000,"Baixa",false,false,false,false);
 			for(Processo p : this.filaPronto)
 			{
-				if(p.interrupcao == true || p.svc == true || p.excecao == true || p.prioridade == "Bloqueado" || p.geraBloqueio == true)
+				if(p.interrupcao == true || p.svc == true || p.prioridade == "Bloqueado")//|| p.geraBloqueio == true --|| p.excecao == true 
 				{
 					Processo retornaProcesso = p;
 					this.filaPronto.remove(this.filaPronto.indexOf(p));
@@ -37,16 +37,16 @@ public class Pronto implements Fila
 			}
 			for(Processo p : this.filaPronto)
 			{
-				if(p.prioridade == "Alta")
+				if(menorTamanho.tamanho > p.tamanho)
+				{
+					menorTamanho = p;
+				}
+				/*if(p.prioridade == "Alta") --  Caso precise considerar a prioridade
 				{
 					Processo retornaProcesso = p;
 					this.filaPronto.remove(this.filaPronto.indexOf(p));
 					return retornaProcesso;
-				}
-				else if(menorTamanho.tamanho > p.tamanho)
-				{
-					menorTamanho = p;
-				}
+				} -- else { */
 			}
 			
 			this.filaPronto.remove(this.filaPronto.indexOf(menorTamanho));
@@ -59,10 +59,10 @@ public class Pronto implements Fila
 	}
 	public void ImprimeFila()
 	{
-		System.out.println("Processo | PID | Chegada | Tamanho | Prioridade");
+		System.out.println("Processo | PID | Chegada | Tamanho | Prioridade | Interrupção? | SVC? | Exeção? | Gera Bloqueio?");
 		for(Processo p : this.filaPronto)
 		{
-			System.out.println(p.nome + " | " + p.pid  + " | "+ p.chegada + " | " + p.tamanho + " | " + p.prioridade);
+			System.out.println(p.nome + " | " + p.pid  + " | "+ p.chegada + " | " + p.tamanho + " | " + p.prioridade + " | " + p.interrupcao + " | " + p.svc + " | " + p.excecao + " | " + p.geraBloqueio);
 		}
 	}
 }
